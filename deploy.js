@@ -11,8 +11,18 @@ async function main() {
 	console.log('Deploying, Please wait ...');
 	const contract = await contractFactory.deploy();
 	const transactionReceipt = await contract.deployTransaction.wait(1);
-	console.log('DEPLOYMENT TRANSACTION (transaction response) : \n', contract.deployTransaction);
-	console.log('TRANSACTION RECEIPT: \n', transactionReceipt);
+	// console.log('DEPLOYMENT TRANSACTION (transaction response) : \n', contract.deployTransaction);
+	// console.log('TRANSACTION RECEIPT: \n', transactionReceipt);
+
+	// Calling retrieve function -> returns favouriteNumber
+	const currentFavoriteNumber = await contract.retrieve();
+	//console.log(currentFavoriteNumber);
+	console.log(`Current Favorite Number: ${currentFavoriteNumber.toString()}`);
+	// Calling store() function -> store favouriteNumber
+	const transactionResponse = await contract.store('7'); // ether will know "7" is a number.
+	const transactionReceipt2 = await transactionResponse.wait(1);
+	const updatedFavoriteNumber = await contract.retrieve();
+	console.log(`Updated Favorite Number: ${updatedFavoriteNumber.toString()}`);
 
 	// console.log('lets deploy with only transaction data!');
 	// const nonce = await wallet.getTransactionCount();
