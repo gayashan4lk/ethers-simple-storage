@@ -29,4 +29,6 @@ Store your **PRIVATE_KEY**, **RPC_URL**, and **PRIVATE_KEY_PASSWORD** in `.env` 
 
 ## Study Log
 
-> 2022/06/15 video timecode = 7:30
+> 2022/06/15 video timecode : FROM `05:30` TO `07:30`  
+> 2022/06/16 video timecode : FROM `07:30` TO `08:30`  
+> Lesson Done ✅
