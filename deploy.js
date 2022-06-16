@@ -5,21 +5,31 @@ require('dotenv').config();
 async function main() {
 	const provider = new ethers.providers.JsonRpcProvider(process.env.PRC_URL);
 
-	//const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+	const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
-	const encryptedJson = fs.readFileSync('./.encryptedKey.json', 'utf-8');
-	let wallet = new ethers.Wallet.fromEncryptedJsonSync(encryptedJson, process.env.PRIVATE_KEY_PASSWORD);
-	wallet = await wallet.connect(provider);
+	// const encryptedJson = fs.readFileSync('./.encryptedKey.json', 'utf-8');
+	// let wallet = new ethers.Wallet.fromEncryptedJsonSync(
+	// 	encryptedJson,
+	// 	process.env.PRIVATE_KEY_PASSWORD
+	// );
+	// wallet = await wallet.connect(provider);
 
 	const abi = fs.readFileSync('./_SimpleStorage_sol_SimpleStorage.abi', 'utf8');
-	const binary = fs.readFileSync('./_SimpleStorage_sol_SimpleStorage.bin', 'utf8');
+	const binary = fs.readFileSync(
+		'./_SimpleStorage_sol_SimpleStorage.bin',
+		'utf8'
+	);
 
 	const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
 	console.log('Deploying, Please wait ...');
 	const contract = await contractFactory.deploy();
-	const transactionReceipt = await contract.deployTransaction.wait(1);
+
+	//const transactionReceipt = await contract.deployTransaction.wait(1);
 	// console.log('DEPLOYMENT TRANSACTION (transaction response) : \n', contract.deployTransaction);
 	// console.log('TRANSACTION RECEIPT: \n', transactionReceipt);
+
+	await contract.deployTransaction.wait(1);
+	console.log(`Contract Address: ${contract.address}`);
 
 	// Calling retrieve function -> returns favouriteNumber
 	const currentFavoriteNumber = await contract.retrieve();
