@@ -1,13 +1,17 @@
-# FreeCodeCamp Youtube Tutorial (Lesson 5)
+# Blockchain Crash Course - Lesson 05
+## Ethers.js Simple Storage
+By freeCodeCamp.org
 
-[Full Blockchain Solidity Course JS (Lesson 5)](https://github.com/smartcontractkit/full-blockchain-solidity-course-js#lesson-5-ethersjs-simple-storage)
+[Youtube Video](https://youtu.be/gyMwXuJrbJQ)  
+[freeCodeCamp Blog Post](https://www.freecodecamp.org/news/learn-blockchain-solidity-full-stack-javascript-development/)  
+[github repo](https://github.com/smartcontractkit/full-blockchain-solidity-course-js#lesson-5-ethersjs-simple-storage)
 
 ## Setup
 
 Clone this repo
 
 ```
-git clone https://github.com/PatrickAlphaC/ethers-simple-storage
+git clone https://github.com/gayashan4lk/ethers-simple-storage
 cd ethers-simple-storage
 ```
 
@@ -30,5 +34,5 @@ Store your **PRIVATE_KEY**, **RPC_URL**, and **PRIVATE_KEY_PASSWORD** in `.env` 
 ## Study Log
 
 > 2022/06/15 video timecode : FROM `05:30` TO `07:30`  
-> 2022/06/16 video timecode : FROM `07:30` TO `08:30`  
+> 2022/06/16 video timecode : FROM `07:30` TO `08:20`  
 > Lesson Done ✅
